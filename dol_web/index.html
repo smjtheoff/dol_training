@@ -16,7 +16,8 @@
   <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="assets/demo/demo.css" rel="stylesheet" />
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet' 
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet' >
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 </head>
 
 <body class="">
@@ -29,26 +30,31 @@
     -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+          NSL Maps
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
+          
           <li class="nav-item active ">
-            <a class="nav-link" href="./index.html">
-              <p>Maps</p>
-            </a>
+            <div class="form-group">
+              <label for="province">เลือกจังหวัด</label>
+              <select class="form-control" id="province" name="province">
+                <option>     เลือกจังหวัด </option>
+              </select>
+            </div>           
           </li>
           <br>
           <li class="nav-item active ">
             <div class="form-group">
-              <label for="province">Province</label>
-              <select class="form-control" id="province">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+              <label for="s-nsl_id">ค้นหาตามเลขแปลง</label>
+              <input type="text" class="form-control" id="s-nsl_id" name="s-nsl_id"></input>
+              <button type="button" class="btn btn-primary" name="btn-s-nsl_id" id="btn-s-nsl_id">ค้นหา</button>
+            </div>           
+          </li>
+          <li class="nav-item active ">
+            <div class="form-group">
+              <button type="button" class="btn btn-primary" name="btn-datatable" id="btn-datatable">ตารางข้อมูล</button>
             </div>           
           </li>
         </ul>
@@ -68,6 +74,47 @@
       <div id="map"></div>
     </div>
   </div>
+
+  <div class="modal fade" id="modal-datatable" name="modal-datatable" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Detail</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <table id="datatable_1" name="datatable_1" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>"nsl_no"</th>
+                        <th>"nsl_name"</th>
+                        <th>"rai"</th>
+                        <th>"ngan"</th>
+                        <th>"wa"</th>
+                        <th>"type"</th>
+                        <th>"f1"</th>
+                        <th>"f2"</th>
+                        <th>"province"</th>
+                        <th>"nsl_name_e"</th>
+                        <th>"prov_nam_e"</th>
+                        <th>"prov_nam_t"</th>
+                        <th>"f1_e"</th>
+                        <th>"tam_nam_t"</th>
+                        <th>"amphoe_t"</th>
+                        <th>"amphoe_e"</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
 
   <!--   Core JS Files   -->
   <script src="assets/js/core/jquery.min.js"></script>
@@ -110,6 +157,7 @@
   <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js'></script>
   <script src="assets/demo/demo.js"></script>
 
